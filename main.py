@@ -31,7 +31,7 @@ COLOR_FECHA_HORA = (255, 255, 255)
 GROSOR_TEXTO = 1
 TIPO_LINEA_TEXTO = cv2.LINE_AA
 FRAMES_VIDEO = 15.0
-escala = 50
+escala = 25
 captura_ancho = int(int(captura.get(3))*escala/100)
 captura_alto = int(int(captura.get(4))*escala/100)
 RESOLUCION_VIDEO = (captura_ancho,captura_alto)#(int(captura.get(3)),int(captura.get(4)))
@@ -40,12 +40,12 @@ print(f'Resolucion -> {RESOLUCION_VIDEO}')
 ## ENVIO SERVIDOR ##
 
 url = 'http://192.168.1.2:8000/upload'
-nombre_video = f'video_{fecha}.avi'
+nombre_video = f'video_{fecha}.mp4'
 
 ## GUARDAR VIDEO ##
 salida = None
 gst_str_rtp = "appsrc ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! rtph264pay ! udpsink host=192.168.86.26 port=5000"
-salida = cv2.VideoWriter(nombre_video,cv2.VideoWriter_fourcc(*'XVID'),FRAMES_VIDEO,RESOLUCION_VIDEO)
+salida = cv2.VideoWriter(nombre_video,cv2.VideoWriter_fourcc(*'mp4v'),FRAMES_VIDEO,RESOLUCION_VIDEO)
 
 ## DETECCION MOVIMIENTO ##
 fondo = None
