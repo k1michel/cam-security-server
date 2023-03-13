@@ -19,7 +19,7 @@ list_frames =[]
 ## FECHA Y HORA DEL SISTEMA ##
 ahora = datetime.now()
 fecha = ahora.strftime("%Y-%m-%d_%H-%M-%S")
-
+print(f'Fecha: {fecha}')
 ## INICIAR CAMARA ##
 captura =  cv2.VideoCapture(0)
 
@@ -31,15 +31,15 @@ COLOR_FECHA_HORA = (255, 255, 255)
 GROSOR_TEXTO = 1
 TIPO_LINEA_TEXTO = cv2.LINE_AA
 FRAMES_VIDEO = 15.0
-escala = 25
+escala = 20
 captura_ancho = int(int(captura.get(3))*escala/100)
 captura_alto = int(int(captura.get(4))*escala/100)
-RESOLUCION_VIDEO = (captura_ancho,captura_alto)#(int(captura.get(3)),int(captura.get(4)))
+RESOLUCION_VIDEO = (captura_ancho,captura_alto) #(int(captura.get(3)),int(captura.get(4)))
 print(f'Resolucion -> {RESOLUCION_VIDEO}')
 
 ## ENVIO SERVIDOR ##
 
-url = 'http://192.168.1.2:8000/upload'
+url = 'http://192.168.1.3:8000/upload'
 nombre_video = f'video_{fecha}.mp4'
 
 ## GUARDAR VIDEO ##
