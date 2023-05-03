@@ -19,7 +19,7 @@ print('---SOFTWARE by Michel Alvarez---')
 
 ## FECHA Y HORA DEL SISTEMA ##
 ahora = datetime.now()
-fecha = ahora.strftime("%Y-%m-%d %H:%M:%S")
+fecha = ahora.strftime("%Y-%m-%d_%H-%M-%S")
 print(f'Fecha: {fecha}')
 ## INICIAR CAMARA ##
 captura =  cv2.VideoCapture(0)
@@ -117,7 +117,7 @@ def detectado():
     if (n_frames == n_frames_max):
         grabando = False
         ahora = datetime.now()
-        fecha = ahora.strftime("%Y-%m-%d %H:%M:%S")
+        fecha = ahora.strftime("%Y-%m-%d_%H-%M-%S")
         nombre_video = f'video_{fecha}.mp4'
         salida = cv2.VideoWriter(nombre_video,cv2.VideoWriter_fourcc(*'mp4v'),FRAMES_VIDEO,RESOLUCION_VIDEO)
         for i in range(len(list_frames)):
